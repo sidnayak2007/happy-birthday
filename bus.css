@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Nunito", Arial, sans-serif;
+    background: #7ec9ea;
+}
+
+:root {
+    --color-ink: #2c3e42;
+    --color-ink-soft: #67787e;
+    --color-gold: #f5ac24;
+    --color-gold-dark: #dc8d16;
+    --color-danger: #e63946;
+    --font-display: "Baloo 2", "Nunito", sans-serif;
+    --font-body: "Nunito", Arial, sans-serif;
+    --radius-lg: 26px;
+    --radius-md: 18px;
+    --shadow-card: 0 14px 34px rgba(20, 40, 45, 0.16);
+    --shadow-soft: 0 8px 20px rgba(20, 40, 45, 0.12);
+}
+
+.game {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #7ec9ea;
+}
+
+
+/* =====================================
+   CANVAS
+===================================== */
+
+#busCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+}
+
+
+/* =====================================
+   HUD
+===================================== */
+
+.hud {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    right: 20px;
+    z-index: 20;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    pointer-events: none;
+}
+
+.coins-box {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-width: 178px;
+    padding: 10px 16px;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+
+    transform-origin: center;
+}
+
+.coins-box.pulse {
+    animation: coinPulse 0.32s ease;
+}
+
+@keyframes coinPulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.coin-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff3c4, #f5ac24 70%);
+    box-shadow: inset 0 -3px 0 rgba(180, 110, 10, 0.35);
+
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.hud-label {
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+}
+
+.coin-count {
+    margin-top: 1px;
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-ink);
+}
+
+.route-box {
+    width: 270px;
+    padding: 12px 16px;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+.route-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+}
+
+.route-arrow {
+    flex-shrink: 0;
+    color: var(--color-gold-dark);
+    font-size: 15px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    margin-top: 8px;
+
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e6e6e6;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #f5ac24, #ff7a3d);
+    transition: width 0.15s linear;
+}
+
+.route-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 5px;
+
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--color-ink-soft);
+}
+
+#timeLeft {
+    color: var(--color-ink);
+}
+
+
+/* =====================================
+   CONTROLS
+===================================== */
+
+.controls {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.steer-button {
+    width: 68px;
+    height: 68px;
+
+    border: none;
+    border-radius: 20px;
+    border-bottom: 5px solid #d8d8d8;
+
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 28px;
+
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: none;
+
+    transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+}
+
+.steer-button:active {
+    transform: translateY(3px);
+    border-bottom-width: 2px;
+}
+
+.steer-label {
+    padding: 9px 16px;
+
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--shadow-soft);
+
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+}
+
+
+/* =====================================
+   OVERLAYS
+===================================== */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    background: rgba(20, 45, 55, 0.32);
+    backdrop-filter: blur(2px);
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.message-card {
+    width: min(400px, 92vw);
+    padding: 32px 28px;
+    text-align: center;
+
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.small-title {
+    margin-bottom: 8px;
+
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+}
+
+.message-card h1 {
+    font-family: var(--font-display);
+    font-size: 27px;
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin-bottom: 10px;
+}
+
+.message-card h1 span {
+    color: var(--color-gold-dark);
+}
+
+.message-card p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+    font-weight: 700;
+}
+
+.route-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 14px auto 0;
+    padding: 8px 16px;
+
+    background: #fff6e6;
+    border: 1.5px solid #ffdca0;
+    border-radius: 30px;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    color: #a2680f;
+    text-transform: uppercase;
+}
+
+.route-chip .route-arrow {
+    color: var(--color-gold-dark);
+    font-size: 14px;
+}
+
+.steer-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.steer-hint-key {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+    background: #f4f4f4;
+    border-bottom: 3px solid #dcdcdc;
+
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--color-ink-soft);
+}
+
+.steer-hint-text {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--color-ink-soft);
+    text-transform: uppercase;
+}
+
+.start-button,
+.continue-button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 16px;
+
+    border: none;
+    border-radius: 16px;
+    border-bottom: 5px solid var(--color-gold-dark);
+
+    background: var(--color-gold);
+    color: #ffffff;
+
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+}
+
+.start-button:active,
+.continue-button:active {
+    transform: translateY(3px);
+    border-bottom-width: 2px;
+}
+
+.finish-emoji {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.final-coins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 16px;
+    padding: 12px;
+
+    border-radius: 14px;
+    background: #fff6df;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: #9b711d;
+    text-transform: uppercase;
+}
+
+.final-coins span {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-gold-dark);
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 600px) {
+    .hud {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+    }
+
+    .coins-box {
+        min-width: 140px;
+        padding: 8px 12px;
+        border-radius: 15px;
+        gap: 8px;
+    }
+
+    .coin-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+
+    .hud-label {
+        font-size: 7px;
+    }
+
+    .coin-count {
+        font-size: 20px;
+    }
+
+    .route-box {
+        width: 198px;
+        padding: 9px 12px;
+        border-radius: 15px;
+    }
+
+    .route-top {
+        font-size: 8px;
+    }
+
+    .route-bottom {
+        font-size: 8px;
+    }
+
+    .steer-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 17px;
+        font-size: 24px;
+    }
+
+    .controls {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .message-card {
+        padding: 26px 22px;
+    }
+
+    .message-card h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .message-card {
+        padding: 16px 24px;
+    }
+
+    .message-card h1 {
+        font-size: 19px;
+        margin-bottom: 6px;
+    }
+
+    .small-title {
+        margin-bottom: 4px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+    }
+
+    .route-chip {
+        margin-top: 8px;
+        padding: 5px 12px;
+    }
+
+    .steer-hint {
+        margin-top: 10px;
+    }
+
+    .steer-hint-key {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+
+    .start-button,
+    .continue-button {
+        margin-top: 12px;
+        padding: 11px;
+    }
+
+    .hud {
+        top: 8px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .controls {
+        bottom: 8px;
+    }
+
+    .steer-button {
+        width: 52px;
+        height: 52px;
+    }
+}

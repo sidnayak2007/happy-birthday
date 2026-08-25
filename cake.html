@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#24162b"
+    >
+
+    <title>Make a Wish, Sejal</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cake.css">
+</head>
+
+<body>
+
+<main
+    id="cakePage"
+    class="cake-page"
+>
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="cake-background">
+
+        <div class="background-glow glow-left"></div>
+        <div class="background-glow glow-right"></div>
+
+        <div class="background-stars"></div>
+
+        <!-- FLOATING BALLOONS -->
+
+        <div
+            class="balloons"
+            aria-hidden="true"
+        >
+
+            <div class="balloon balloon-red">
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="balloon balloon-yellow">
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="balloon balloon-blue">
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="balloon balloon-pink">
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="balloon balloon-green">
+                <div class="balloon-string"></div>
+            </div>
+
+            <div class="balloon balloon-purple">
+                <div class="balloon-string"></div>
+            </div>
+
+        </div>
+
+
+        <!-- CONFETTI -->
+
+        <div
+            id="confettiLayer"
+            class="confetti-layer"
+            aria-hidden="true"
+        ></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="cake-header">
+
+        <div class="cake-title">
+
+            <span>
+                A LITTLE CELEBRATION
+            </span>
+
+            <strong>
+                SEJAL'S BIRTHDAY
+            </strong>
+
+        </div>
+
+
+        <div class="cake-coins">
+
+            <span class="coin-icon">
+                🪙
+            </span>
+
+            <strong id="coinCount">
+                0
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN SCENE
+         ===================================================== -->
+
+    <section
+        id="cakeScene"
+        class="cake-scene"
+    >
+
+
+        <!-- =================================================
+             TOP CELEBRATION MESSAGE
+             ================================================= -->
+
+        <div
+            id="celebrationMessage"
+            class="celebration-message"
+        >
+
+            <span>
+                BASKETBALL COMPLETE
+            </span>
+
+            <h1>
+                You made it,<br>
+                Sejal!
+            </h1>
+
+            <p>
+                Five baskets in a row.
+                Now everyone has something special waiting for you.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             BIRTHDAY BANNERS
+             ================================================= -->
+
+        <div
+            id="birthdayBanners"
+            class="birthday-banners"
+            aria-hidden="true"
+        >
+
+            <div class="birthday-banner banner-left">
+                HAPPY
+            </div>
+
+            <div class="birthday-banner banner-left-bottom">
+                MAKE A WISH!
+            </div>
+
+            <div class="birthday-banner banner-right">
+                SEJAL!
+            </div>
+
+            <div class="birthday-banner banner-right-bottom">
+                5 CANDLES
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             AUDIENCE
+             ================================================= -->
+
+        <section
+            id="birthdayAudience"
+            class="birthday-audience"
+            aria-label="Birthday crowd"
+        >
+
+            <div
+                id="audienceBack"
+                class="audience-row audience-back"
+            >
+            </div>
+
+
+            <div
+                id="audienceFront"
+                class="audience-row audience-front"
+            >
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CROWD MESSAGE
+             ================================================= -->
+
+        <div
+            id="crowdMessage"
+            class="crowd-message"
+        >
+            HAPPY BIRTHDAY, SEJAL!
+        </div>
+
+
+        <!-- =================================================
+             CAKE AREA
+             ================================================= -->
+
+        <div
+            id="cake"
+            class="cake"
+        >
+
+            <!-- CAKE SHADOW -->
+
+            <div class="cake-shadow"></div>
+
+
+            <!-- PLATE -->
+
+            <div class="cake-plate">
+                <div class="cake-plate-highlight"></div>
+            </div>
+
+
+            <!-- =================================================
+                 BOTTOM CAKE LAYER
+                 ================================================= -->
+
+            <div class="cake-bottom">
+
+                <div class="cake-layer layer-bottom">
+
+                    <div class="cake-layer-highlight"></div>
+
+                    <div class="cake-decoration">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cake-cream cream-bottom">
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 MIDDLE CAKE LAYER
+                 ================================================= -->
+
+            <div class="cake-middle">
+
+                <div class="cake-layer layer-middle">
+
+                    <div class="cake-layer-highlight"></div>
+
+                    <div class="cake-decoration">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cake-cream cream-middle">
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TOP CAKE LAYER
+                 ================================================= -->
+
+            <div class="cake-top">
+
+                <div class="cake-layer layer-top">
+
+                    <div class="cake-layer-highlight"></div>
+
+                    <div class="cake-decoration">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cake-cream cream-top">
+                </div>
+
+
+                <!-- CAKE MESSAGE -->
+
+                <div class="cake-name">
+                    SEJAL
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CANDLES
+                 ================================================= -->
+
+            <div
+                id="candles"
+                class="candles"
+            >
+
+
+                <!-- CANDLE 1 -->
+
+                <button
+                    type="button"
+                    class="candle candle-one"
+                    data-candle="1"
+                    aria-label="Blow out candle 1"
+                >
+
+                    <span class="candle-body"></span>
+
+                    <span class="flame">
+
+                        <span class="flame-inner"></span>
+
+                    </span>
+
+                    <span class="smoke">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CANDLE 2 -->
+
+                <button
+                    type="button"
+                    class="candle candle-two"
+                    data-candle="2"
+                    aria-label="Blow out candle 2"
+                >
+
+                    <span class="candle-body"></span>
+
+                    <span class="flame">
+
+                        <span class="flame-inner"></span>
+
+                    </span>
+
+                    <span class="smoke">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CANDLE 3 -->
+
+                <button
+                    type="button"
+                    class="candle candle-three"
+                    data-candle="3"
+                    aria-label="Blow out candle 3"
+                >
+
+                    <span class="candle-body"></span>
+
+                    <span class="flame">
+
+                        <span class="flame-inner"></span>
+
+                    </span>
+
+                    <span class="smoke">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CANDLE 4 -->
+
+                <button
+                    type="button"
+                    class="candle candle-four"
+                    data-candle="4"
+                    aria-label="Blow out candle 4"
+                >
+
+                    <span class="candle-body"></span>
+
+                    <span class="flame">
+
+                        <span class="flame-inner"></span>
+
+                    </span>
+
+                    <span class="smoke">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                </button>
+
+
+                <!-- CANDLE 5 -->
+
+                <button
+                    type="button"
+                    class="candle candle-five"
+                    data-candle="5"
+                    aria-label="Blow out candle 5"
+                >
+
+                    <span class="candle-body"></span>
+
+                    <span class="flame">
+
+                        <span class="flame-inner"></span>
+
+                    </span>
+
+                    <span class="smoke">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CANDLE PROGRESS
+             ================================================= -->
+
+        <div
+            id="candleProgress"
+            class="candle-progress"
+        >
+
+            <span
+                class="progress-dot active"
+                data-progress="1"
+            ></span>
+
+            <span
+                class="progress-dot"
+                data-progress="2"
+            ></span>
+
+            <span
+                class="progress-dot"
+                data-progress="3"
+            ></span>
+
+            <span
+                class="progress-dot"
+                data-progress="4"
+            ></span>
+
+            <span
+                class="progress-dot"
+                data-progress="5"
+            ></span>
+
+        </div>
+
+
+        <!-- =================================================
+             DYNAMIC CANDLE MESSAGE
+             ================================================= -->
+
+        <div
+            id="candleMessage"
+            class="candle-message"
+            aria-live="polite"
+        >
+
+            <span class="candle-message-small">
+                MAKE A WISH
+            </span>
+
+            <strong>
+                Your birthday moment starts here.
+            </strong>
+
+        </div>
+
+
+        <!-- =================================================
+             WISH PROMPT
+             ================================================= -->
+
+        <div
+            id="wishPrompt"
+            class="wish-prompt"
+        >
+
+            <div class="wish-icon">
+                🕯️
+            </div>
+
+            <span>
+                MAKE A WISH
+            </span>
+
+            <strong>
+                Tap a candle
+            </strong>
+
+            <small>
+                Close your eyes and make it a good one.
+            </small>
+
+        </div>
+
+
+        <!-- =================================================
+             WISH COMPLETE
+             ================================================= -->
+
+        <div
+            id="wishComplete"
+            class="wish-complete"
+        >
+
+            <div class="wish-complete-icon">
+                ✨
+            </div>
+
+            <span class="wish-complete-small">
+                ALL FIVE CANDLES
+            </span>
+
+            <h2>
+                Happy Birthday,<br>
+                Sejal!
+            </h2>
+
+            <p>
+                Your wish is made.
+                Now let's celebrate.
+            </p>
+
+            <button
+                id="continueToStore"
+                class="primary-button"
+                type="button"
+            >
+                Visit the Birthday Store
+                <span>→</span>
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO OVERLAY
+         ===================================================== -->
+
+    <div
+        id="introOverlay"
+        class="overlay active"
+    >
+
+        <div class="popup-card">
+
+            <div class="popup-icon">
+                🏆
+            </div>
+
+            <span class="popup-label">
+                BASKETBALL COMPLETE
+            </span>
+
+            <h1>
+                You made it,<br>
+                Sejal!
+            </h1>
+
+            <p>
+                Five baskets in a row.
+                Now it's time to make a birthday wish.
+            </p>
+
+
+            <div class="victory-badge">
+
+                <span>
+                    FINAL SCORE
+                </span>
+
+                <strong>
+                    🏀 5 / 5
+                </strong>
+
+            </div>
+
+
+            <button
+                id="beginCelebration"
+                class="primary-button"
+                type="button"
+            >
+                See your cake
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script src="cake.js"></script>
+
+</body>
+</html>
