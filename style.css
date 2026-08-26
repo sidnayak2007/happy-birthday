@@ -1,0 +1,1700 @@
+
+/* =========================================================
+   SEJAL BIRTHDAY WEBSITE
+   FRIENDLY BIRTHDAY THEME
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #302b3d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e9 0%,
+            #fff0dc 45%,
+            #eeeaff 100%
+        );
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.birthday-page {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,0.95) 0%,
+            rgba(255,248,231,0.7) 35%,
+            transparent 70%
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.birthday-background {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND GLOWS
+   ========================================================= */
+
+.pink-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(85px);
+
+    opacity: 0.38;
+}
+
+.glow-top {
+    width: 450px;
+    height: 450px;
+
+    top: -270px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #ffd88f;
+}
+
+.glow-left {
+    width: 320px;
+    height: 320px;
+
+    left: -180px;
+    top: 30%;
+
+    background: #bfe7ff;
+}
+
+.glow-right {
+    width: 350px;
+    height: 350px;
+
+    right: -180px;
+    bottom: -120px;
+
+    background: #d5c5ff;
+}
+
+
+/* =========================================================
+   SPARKLES
+   ========================================================= */
+
+.sparkle {
+    position: absolute;
+
+    color: #d5a94b;
+
+    opacity: 0.65;
+
+    animation:
+        sparklePulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+.sparkle-one {
+    top: 16%;
+    left: 24%;
+
+    font-size: 20px;
+}
+
+.sparkle-two {
+    top: 29%;
+    right: 23%;
+
+    font-size: 27px;
+
+    animation-delay: 0.7s;
+}
+
+.sparkle-three {
+    bottom: 22%;
+    right: 24%;
+
+    font-size: 19px;
+
+    animation-delay: 1.3s;
+}
+
+.sparkle-four {
+    bottom: 18%;
+    left: 24%;
+
+    font-size: 24px;
+
+    animation-delay: 1.8s;
+}
+
+@keyframes sparklePulse {
+
+    0%,
+    100% {
+        opacity: 0.25;
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.9;
+
+        transform:
+            scale(1.15)
+            rotate(45deg);
+    }
+}
+
+
+/* =========================================================
+   CONFETTI
+   ========================================================= */
+
+.confetti {
+    position: absolute;
+
+    width: 8px;
+    height: 15px;
+
+    border-radius: 3px;
+
+    opacity: 0.55;
+}
+
+.confetti-one {
+    top: 13%;
+    left: 38%;
+
+    background: #f0b45c;
+
+    transform: rotate(25deg);
+}
+
+.confetti-two {
+    top: 20%;
+    right: 35%;
+
+    background: #9d8ce0;
+
+    transform: rotate(70deg);
+}
+
+.confetti-three {
+    bottom: 18%;
+    left: 36%;
+
+    background: #f2a6a6;
+
+    transform: rotate(50deg);
+}
+
+.confetti-four {
+    bottom: 29%;
+    right: 31%;
+
+    background: #8fc8df;
+
+    transform: rotate(20deg);
+}
+
+.confetti-five {
+    top: 39%;
+    left: 16%;
+
+    background: #e0bd69;
+
+    transform: rotate(85deg);
+}
+
+
+/* =========================================================
+   TOP DECORATION
+   ========================================================= */
+
+.top-decoration {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    color: #c89c42;
+
+    font-size: 18px;
+}
+
+.top-line {
+    width: 110px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(200,156,66,0.5),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.birthday-card {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(90%, 520px);
+
+    min-height: 650px;
+
+    padding: 48px 40px 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255,255,255,0.76);
+
+    border:
+        1px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 30px 80px rgba(99,82,50,0.12),
+        0 8px 25px rgba(70,60,50,0.07);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation:
+        cardAppear
+        0.8s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        )
+        forwards;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   BIRTHDAY LABEL
+   ========================================================= */
+
+.birthday-label {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    color: #a77d2d;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2em;
+}
+
+.label-line {
+    width: 28px;
+    height: 1px;
+
+    background:
+        #d9bd7c;
+}
+
+
+/* =========================================================
+   BALLOON
+   ========================================================= */
+
+.birthday-balloon {
+    position: relative;
+
+    width: 95px;
+    height: 115px;
+
+    margin-bottom: 5px;
+}
+
+.balloon {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 78px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 10px 8px
+            rgba(100,80,50,0.15)
+        );
+
+    animation:
+        balloonFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+.balloon-string {
+    position: absolute;
+
+    z-index: -1;
+
+    left: 50%;
+    top: 68px;
+
+    width: 1px;
+    height: 58px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #b9a98f;
+}
+
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-8px)
+            rotate(3deg);
+    }
+}
+
+
+/* =========================================================
+   WELCOME CONTENT
+   ========================================================= */
+
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.hello {
+    margin-bottom: 14px;
+
+    color: #8c6f36;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+}
+
+.welcome-content h1 {
+    margin-bottom: 16px;
+
+    color: #343044;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(48px, 8vw, 70px);
+
+    font-weight: 800;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+}
+
+.welcome-content h1 span {
+    color: #8b75c9;
+}
+
+.intro-text {
+    max-width: 340px;
+
+    margin-bottom: 28px;
+
+    color: #756e7d;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+   ========================================================= */
+
+.continue-button {
+    min-width: 190px;
+
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8f7bd0,
+            #7562b8
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 12px 25px
+        rgba(112,95,177,0.25);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.continue-button strong {
+    font-size: 18px;
+
+    font-weight: 500;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.continue-button:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 17px 32px
+        rgba(112,95,177,0.32);
+}
+
+.continue-button:hover strong {
+    transform:
+        translateX(4px);
+}
+
+.continue-button:active {
+    transform:
+        translateY(0)
+        scale(0.97);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.birthday-footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding-top: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 11px;
+
+    color: #b18e45;
+}
+
+.birthday-footer span {
+    font-size: 10px;
+}
+
+.birthday-footer p {
+    font-size: 11px;
+
+    font-style: italic;
+
+    color: #8d8170;
+}
+
+
+/* =========================================================
+   BOTTOM DECORATION
+   ========================================================= */
+
+.bottom-decoration {
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 24px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    color: #c2a86d;
+
+    font-size: 14px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .birthday-card {
+        width: min(88%, 500px);
+
+        min-height: 610px;
+
+        padding:
+            40px 30px 30px;
+    }
+
+    .birthday-balloon {
+        margin-bottom: 0;
+    }
+
+    .welcome-content h1 {
+        font-size: 54px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .birthday-card {
+        width: 91%;
+
+        min-height: 570px;
+
+        padding:
+            32px 22px 24px;
+
+        border-radius: 27px;
+    }
+
+    .birthday-label {
+        margin-bottom: 12px;
+
+        font-size: 7px;
+    }
+
+    .label-line {
+        width: 20px;
+    }
+
+    .birthday-balloon {
+        width: 80px;
+        height: 95px;
+    }
+
+    .balloon {
+        font-size: 65px;
+    }
+
+    .balloon-string {
+        top: 57px;
+        height: 48px;
+    }
+
+    .hello {
+        margin-bottom: 11px;
+
+        font-size: 14px;
+
+        letter-spacing: 0.18em;
+    }
+
+    .welcome-content h1 {
+        margin-bottom: 13px;
+
+        font-size:
+            clamp(43px, 13vw, 58px);
+    }
+
+    .intro-text {
+        max-width: 280px;
+
+        margin-bottom: 23px;
+
+        font-size: 12px;
+    }
+
+    .continue-button {
+        min-width: 175px;
+
+        padding:
+            13px 18px;
+
+        font-size: 12px;
+    }
+
+    .birthday-footer {
+        padding-top: 20px;
+    }
+
+    .birthday-footer p {
+        font-size: 10px;
+    }
+
+    .top-decoration {
+        top: 17px;
+    }
+
+    .top-line {
+        width: 65px;
+    }
+
+    .bottom-decoration {
+        bottom: 13px;
+
+        gap: 13px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-height: 700px) and (max-width: 500px) {
+
+    .birthday-card {
+        min-height: 530px;
+
+        padding:
+            25px 20px 18px;
+    }
+
+    .birthday-balloon {
+        height: 72px;
+    }
+
+    .balloon {
+        font-size: 52px;
+    }
+
+    .balloon-string {
+        top: 48px;
+        height: 38px;
+    }
+
+    .welcome-content h1 {
+        font-size: 42px;
+    }
+
+    .intro-text {
+        margin-bottom: 18px;
+    }
+
+    .birthday-footer {
+        padding-top: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.continue-button:focus-visible {
+    outline:
+        3px solid
+        rgba(117,98,184,0.35);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+}
+/* =========================================================
+   CROWD INTENSITY SYSTEM
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   LEVEL 0 — CALM
+   --------------------------------------------------------- */
+
+.crowd-level-0 .crowd-member {
+    animation-duration: 2.8s;
+}
+
+
+/* ---------------------------------------------------------
+   LEVEL 1 — INTERESTED
+   --------------------------------------------------------- */
+
+.crowd-level-1 .crowd-member {
+    animation-duration: 2.35s;
+}
+
+
+/* ---------------------------------------------------------
+   LEVEL 2 — EXCITED
+   --------------------------------------------------------- */
+
+.crowd-level-2 .crowd-member {
+    animation-duration: 1.9s;
+}
+
+.crowd-level-2 .crowd-arm {
+    animation-duration: 0.75s;
+}
+
+
+/* ---------------------------------------------------------
+   LEVEL 3 — TENSE
+   --------------------------------------------------------- */
+
+.crowd-level-3 .crowd-member {
+    animation-duration: 1.35s;
+}
+
+.crowd-level-3 .crowd-body {
+    animation:
+        crowdBounce 0.55s
+        ease-in-out
+        infinite;
+}
+
+.crowd-level-3 .crowd-arm {
+    animation-duration: 0.48s;
+}
+
+
+/* ---------------------------------------------------------
+   LEVEL 4 — FINAL HOOP
+   --------------------------------------------------------- */
+
+.crowd-level-4 .crowd-member {
+    animation:
+        crowdFinalBounce
+        0.65s
+        ease-in-out
+        infinite;
+}
+
+.crowd-level-4 .crowd-arm {
+    animation:
+        crowdFinalWave
+        0.42s
+        ease-in-out
+        infinite;
+}
+
+.crowd-level-4 .crowd-head {
+    animation:
+        crowdHeadShake
+        0.7s
+        ease-in-out
+        infinite;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL HOOP SPECIAL ANTICIPATION
+   --------------------------------------------------------- */
+
+.crowd.final-hoop .crowd-member {
+    animation:
+        crowdAnticipation
+        0.42s
+        ease-in-out
+        infinite;
+}
+
+.crowd.final-hoop .crowd-arm {
+    animation:
+        crowdFinalWave
+        0.30s
+        ease-in-out
+        infinite;
+}
+
+
+/* ---------------------------------------------------------
+   BANNER INTENSITY
+   --------------------------------------------------------- */
+
+.crowd-energy-1 .support-banner {
+    animation-duration: 2.2s;
+}
+
+.crowd-energy-2 .support-banner {
+    animation-duration: 1.7s;
+}
+
+.crowd-energy-3 .support-banner {
+    animation-duration: 1.25s;
+}
+
+.crowd-energy-4 .support-banner {
+    animation:
+        bannerShake
+        0.65s
+        ease-in-out
+        infinite;
+}
+
+.crowd-energy-5 .support-banner {
+    animation:
+        bannerCrazy
+        0.42s
+        ease-in-out
+        infinite;
+}
+
+
+/* ---------------------------------------------------------
+   FINAL BANNER ANTICIPATION
+   --------------------------------------------------------- */
+
+.crowdBanners.final-hoop .support-banner {
+    animation:
+        bannerAnticipation
+        0.35s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   CROWD ANIMATIONS
+   ========================================================= */
+
+@keyframes crowdBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+
+}
+
+
+@keyframes crowdFinalBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translateY(-7px)
+            rotate(-1deg);
+    }
+
+    75% {
+        transform:
+            translateY(-9px)
+            rotate(1deg);
+    }
+
+}
+
+
+@keyframes crowdAnticipation {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translateY(-5px)
+            scale(1.02);
+    }
+
+    60% {
+        transform:
+            translateY(0)
+            scale(0.99);
+    }
+
+    80% {
+        transform:
+            translateY(-8px)
+            scale(1.02);
+    }
+
+}
+
+
+@keyframes crowdFinalWave {
+
+    0% {
+        transform:
+            rotate(-18deg);
+    }
+
+    50% {
+        transform:
+            rotate(28deg);
+    }
+
+    100% {
+        transform:
+            rotate(-18deg);
+    }
+
+}
+
+
+@keyframes crowdHeadShake {
+
+    0%,
+    100% {
+        transform:
+            translateX(0);
+    }
+
+    25% {
+        transform:
+            translateX(-2px);
+    }
+
+    75% {
+        transform:
+            translateX(2px);
+    }
+
+}
+
+
+/* =========================================================
+   BANNERS
+   ========================================================= */
+
+@keyframes bannerShake {
+
+    0%,
+    100% {
+        transform:
+            rotate(-1deg)
+            translateY(0);
+    }
+
+    25% {
+        transform:
+            rotate(2deg)
+            translateY(-3px);
+    }
+
+    75% {
+        transform:
+            rotate(-2deg)
+            translateY(2px);
+    }
+
+}
+
+
+@keyframes bannerCrazy {
+
+    0%,
+    100% {
+        transform:
+            rotate(-3deg)
+            translateY(0)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            rotate(4deg)
+            translateY(-5px)
+            scale(1.03);
+    }
+
+    50% {
+        transform:
+            rotate(-4deg)
+            translateY(2px)
+            scale(0.98);
+    }
+
+    75% {
+        transform:
+            rotate(3deg)
+            translateY(-4px)
+            scale(1.03);
+    }
+
+}
+
+
+@keyframes bannerAnticipation {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(2deg);
+    }
+
+}
+
+
+/* =========================================================
+   VICTORY
+   ========================================================= */
+
+.crowd.full-celebration .crowd-member {
+    animation:
+        crowdVictory
+        0.7s
+        ease-in-out
+        infinite;
+}
+
+
+.crowd.full-celebration .crowd-arm {
+    animation:
+        crowdVictoryArms
+        0.35s
+        ease-in-out
+        infinite;
+}
+
+
+.crowdBanners.full-celebration .support-banner {
+    animation:
+        bannerVictory
+        0.6s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes crowdVictory {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translateY(-13px)
+            scale(1.04);
+    }
+
+    60% {
+        transform:
+            translateY(-5px)
+            scale(0.98);
+    }
+
+}
+
+
+@keyframes crowdVictoryArms {
+
+    0%,
+    100% {
+        transform:
+            rotate(-35deg);
+    }
+
+    50% {
+        transform:
+            rotate(45deg);
+    }
+
+}
+
+
+@keyframes bannerVictory {
+
+    0%,
+    100% {
+        transform:
+            rotate(-3deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotate(4deg)
+            scale(1.08);
+    }
+
+}
+/* =========================================================
+   CROWD ESCALATION SYSTEM
+   ========================================================= */
+
+.crowd-member {
+    transform-origin: center bottom !important;
+    will-change: transform;
+}
+
+.crowd-arm {
+    transform-origin: 50% 10% !important;
+    will-change: transform;
+}
+
+
+/* =========================================================
+   PEOPLE
+   ========================================================= */
+
+@keyframes crowdCalm {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-2px)
+            rotate(0.5deg);
+    }
+
+}
+
+
+@keyframes crowdExcited {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-1deg);
+    }
+
+    25% {
+        transform:
+            translateY(-5px)
+            rotate(1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-2px)
+            rotate(-1deg);
+    }
+
+    75% {
+        transform:
+            translateY(-6px)
+            rotate(1deg);
+    }
+
+}
+
+
+@keyframes crowdTense {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-2deg)
+            scale(1);
+    }
+
+    20% {
+        transform:
+            translateY(-7px)
+            rotate(2deg)
+            scale(1.02);
+    }
+
+    40% {
+        transform:
+            translateY(-2px)
+            rotate(-2deg)
+            scale(0.99);
+    }
+
+    60% {
+        transform:
+            translateY(-8px)
+            rotate(2deg)
+            scale(1.02);
+    }
+
+    80% {
+        transform:
+            translateY(-4px)
+            rotate(-1deg)
+            scale(1);
+    }
+
+}
+
+
+@keyframes crowdFinal {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-3deg)
+            scale(1);
+    }
+
+    20% {
+        transform:
+            translateY(-11px)
+            rotate(4deg)
+            scale(1.04);
+    }
+
+    40% {
+        transform:
+            translateY(-3px)
+            rotate(-4deg)
+            scale(0.98);
+    }
+
+    60% {
+        transform:
+            translateY(-13px)
+            rotate(4deg)
+            scale(1.05);
+    }
+
+    80% {
+        transform:
+            translateY(-7px)
+            rotate(-3deg)
+            scale(1.01);
+    }
+
+}
+
+
+@keyframes crowdVictory {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(-4deg)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            translateY(-16px)
+            rotate(6deg)
+            scale(1.07);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            rotate(-5deg)
+            scale(0.98);
+    }
+
+    75% {
+        transform:
+            translateY(-14px)
+            rotate(5deg)
+            scale(1.05);
+    }
+
+}
+
+
+/* =========================================================
+   ARMS
+   ========================================================= */
+
+@keyframes armCalm {
+
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+}
+
+
+@keyframes armExcited {
+
+    0%, 100% {
+        transform: rotate(-28deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+
+}
+
+
+@keyframes armTense {
+
+    0%, 100% {
+        transform: rotate(-42deg);
+    }
+
+    50% {
+        transform: rotate(48deg);
+    }
+
+}
+
+
+@keyframes armFinal {
+
+    0%, 100% {
+        transform: rotate(-58deg);
+    }
+
+    50% {
+        transform: rotate(65deg);
+    }
+
+}
+
+
+@keyframes armVictory {
+
+    0%, 100% {
+        transform: rotate(-70deg);
+    }
+
+    50% {
+        transform: rotate(75deg);
+    }
+
+}
+
+
+/* =========================================================
+   BANNERS
+   ========================================================= */
+
+.support-banner {
+    transform-origin: center center;
+}
+
+
+@keyframes bannerCalm {
+
+    0%, 100% {
+        transform: rotate(-1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+
+}
+
+
+@keyframes bannerExcited {
+
+    0%, 100% {
+        transform: rotate(-3deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(3deg) translateY(-4px);
+    }
+
+}
+
+
+@keyframes bannerFinal {
+
+    0%, 100% {
+        transform:
+            rotate(-4deg)
+            translateY(0)
+            scale(1);
+    }
+
+    25% {
+        transform:
+            rotate(5deg)
+            translateY(-6px)
+            scale(1.03);
+    }
+
+    50% {
+        transform:
+            rotate(-5deg)
+            translateY(2px)
+            scale(0.98);
+    }
+
+    75% {
+        transform:
+            rotate(4deg)
+            translateY(-5px)
+            scale(1.03);
+    }
+
+}
+
+
+@keyframes bannerVictory {
+
+    0%, 100% {
+        transform:
+            rotate(-5deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotate(5deg)
+            translateY(-10px)
+            scale(1.08);
+    }
+
+}
+
+
+/* =========================================================
+   APPLY BANNER LEVELS
+   ========================================================= */
+
+.crowd-banners.banner-calm .support-banner {
+    animation:
+        bannerCalm
+        2.5s
+        ease-in-out
+        infinite !important;
+}
+
+.crowd-banners.banner-excited .support-banner {
+    animation:
+        bannerExcited
+        1.25s
+        ease-in-out
+        infinite !important;
+}
+
+.crowd-banners.banner-final .support-banner {
+    animation:
+        bannerFinal
+        0.55s
+        ease-in-out
+        infinite !important;
+}
+
+.crowd-banners.banner-victory .support-banner {
+    animation:
+        bannerVictory
+        0.4s
+        ease-in-out
+        infinite !important;
+}
+
+
+/* =========================================================
+   FINAL SHOT — EXTRA TENSION
+   ========================================================= */
+
+.crowd.final-hoop {
+    filter: saturate(1.12);
+}
+
+.crowd.final-hoop .crowd-member {
+    animation-duration: 0.45s !important;
+}
+
+
+/* =========================================================
+   VICTORY
+   ========================================================= */
+
+.crowd.full-celebration .crowd-member {
+    animation:
+        crowdVictory
+        0.38s
+        ease-in-out
+        infinite !important;
+}
+
+.crowd.full-celebration .crowd-arm {
+    animation:
+        armVictory
+        0.25s
+        ease-in-out
+        infinite !important;
+}

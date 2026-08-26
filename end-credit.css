@@ -1,0 +1,1079 @@
+/* =========================================================
+   SEJAL'S BIRTHDAY
+   CINEMATIC END CREDITS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    overflow: hidden;
+
+    background: #241f27;
+
+    color: #fff4e8;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.credits-page {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 28%,
+            rgba(214, 171, 195, .22),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 85%,
+            rgba(238, 195, 140, .14),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #302733,
+            #211d25
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+   ========================================================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 480px;
+    height: 480px;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: .15;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.glow-one {
+    top: -250px;
+    left: -180px;
+
+    background: #d7a9c7;
+}
+
+
+.glow-two {
+    right: -220px;
+    bottom: -250px;
+
+    background: #e7b97f;
+}
+
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.stars {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+.star-dot {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: #f7d9a5;
+
+    box-shadow:
+        0 0 8px
+        rgba(247, 217, 165, .55);
+
+    opacity: .25;
+
+    animation:
+        starPulse
+        var(--speed)
+        ease-in-out
+        var(--delay)
+        infinite;
+}
+
+
+@keyframes starPulse {
+
+    0%,
+    100% {
+        opacity: .12;
+
+        transform:
+            scale(.7);
+    }
+
+    50% {
+        opacity: .75;
+
+        transform:
+            scale(1.15);
+    }
+}
+
+
+/* =========================================================
+   CREDIT WINDOW
+   ========================================================= */
+
+.credit-window {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   CREDIT ROLL
+   ========================================================= */
+
+.credit-roll {
+    position: absolute;
+
+    left: 50%;
+
+    width: min(760px, 90vw);
+
+    text-align: center;
+
+    transform:
+        translateX(-50%)
+        translateY(100vh);
+
+    animation:
+        creditRoll
+        30s
+        linear
+        forwards;
+}
+
+
+@keyframes creditRoll {
+
+    0% {
+        transform:
+            translateX(-50%)
+            translateY(100vh);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(
+                calc(-100% - 100vh)
+            );
+    }
+}
+
+
+/* =========================================================
+   CREDIT BLOCKS
+   ========================================================= */
+
+.credit-block {
+    min-height: 360px;
+
+    padding:
+        55px
+        20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.credit-block.opening {
+    min-height: 440px;
+}
+
+
+.credit-block.apology {
+    min-height: 450px;
+}
+
+
+.credit-block.internship {
+    min-height: 490px;
+}
+
+
+.credit-block.birthday {
+    min-height: 480px;
+}
+
+
+.credit-block.wishes {
+    min-height: 430px;
+}
+
+
+.credit-block.final {
+    min-height: 470px;
+}
+
+
+.credit-block.post-credits {
+    min-height: 390px;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.tiny-label {
+    margin-bottom: 18px;
+
+    color: #bcaab1;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+h1,
+h2,
+h3 {
+    font-weight: 1000;
+
+    line-height: .95;
+
+    letter-spacing: -1.5px;
+}
+
+
+h1 {
+    font-size:
+        clamp(50px, 8vw, 90px);
+}
+
+
+h2 {
+    font-size:
+        clamp(34px, 5.5vw, 62px);
+}
+
+
+h3 {
+    max-width: 720px;
+
+    font-size:
+        clamp(22px, 3.5vw, 38px);
+}
+
+
+.gold {
+    color: #e8bd83;
+
+    text-shadow:
+        0 0 25px
+        rgba(232, 189, 131, .18);
+}
+
+
+p {
+    max-width: 610px;
+
+    margin-top: 18px;
+
+    color: #d2c3c4;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+strong {
+    color: #e8bd83;
+}
+
+
+/* =========================================================
+   OPENING
+   ========================================================= */
+
+.opening h1 {
+    color: #fff4eb;
+}
+
+
+.opening h2 {
+    margin-top: 8px;
+
+    color: #e8bd83;
+}
+
+
+.opening p {
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   SYMBOLS
+   ========================================================= */
+
+.star-symbol {
+    margin-top: 30px;
+
+    color: #e8bd83;
+
+    font-size: 24px;
+}
+
+
+.star-symbol.big {
+    margin-top: 0;
+
+    margin-bottom: 22px;
+
+    font-size: 40px;
+}
+
+
+.highlight {
+    color: #f1d8ce;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CREDIT LIST
+   ========================================================= */
+
+.credit-list {
+    width: min(520px, 90vw);
+
+    margin-top: 25px;
+}
+
+
+.credit-list div {
+    padding: 8px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    color: #c2b4b8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.credit-list strong {
+    color: #8fc2a1;
+}
+
+
+.joke {
+    margin-top: 22px;
+
+    color: #93878e;
+
+    font-size: 9px;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   INTERNSHIP
+   ========================================================= */
+
+.wish-card {
+    width: min(540px, 90vw);
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(232, 189, 131, .20);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(232, 189, 131, .08),
+            rgba(215, 169, 199, .06)
+        );
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, .16);
+}
+
+
+.wish-card .star-symbol {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   BIRTHDAY
+   ========================================================= */
+
+.birthday h2 {
+    margin-bottom: 5px;
+}
+
+
+.birthday h1 {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   WISHES
+   ========================================================= */
+
+.wishes {
+    gap: 18px;
+}
+
+
+.wish-line {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.wish-line span {
+    color: #9d8c95;
+
+    font-size: 7px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.wish-line strong {
+    color: #e8bd83;
+
+    font-size:
+        clamp(23px, 3.5vw, 38px);
+
+    font-weight: 1000;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+   ========================================================= */
+
+.achievement-list {
+    width: min(500px, 90vw);
+
+    margin-top: 25px;
+}
+
+
+.achievement-list p {
+    margin-top: 8px;
+
+    padding: 7px 5px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .06);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.final-message {
+    margin-top: 30px;
+
+    color: #e8bd83;
+
+    font-size:
+        clamp(28px, 5vw, 55px);
+
+    font-weight: 1000;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 30px
+        rgba(232, 189, 131, .18);
+}
+
+
+.final-name {
+    margin-top: 4px;
+
+    color: #fff3e8;
+
+    font-size:
+        clamp(48px, 9vw, 90px);
+
+    font-weight: 1000;
+
+    letter-spacing: 4px;
+}
+
+
+.signature {
+    margin-top: 25px;
+
+    color: #c9b9bc;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   POST CREDITS
+   ========================================================= */
+
+.post-title {
+    color: #e8bd83 !important;
+
+    font-size: 10px !important;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   FINAL POPUP OVERLAY
+   ========================================================= */
+
+.replay-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(13, 10, 15, .76);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .65s ease,
+        visibility .65s ease;
+}
+
+
+.replay-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   POPUP CARD
+   ========================================================= */
+
+.replay-card {
+    width: min(
+        440px,
+        92vw
+    );
+
+    padding:
+        38px
+        30px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(232, 189, 131, .30);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(54, 45, 55, .99),
+            rgba(36, 31, 39, .99)
+        );
+
+    box-shadow:
+        0 35px 100px
+        rgba(0, 0, 0, .60),
+
+        0 0 60px
+        rgba(232, 189, 131, .08);
+
+    transform:
+        translateY(35px)
+        scale(.92);
+
+    transition:
+        transform .75s
+        cubic-bezier(.2, .9, .25, 1);
+}
+
+
+.replay-overlay.show .replay-card {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   POPUP SPARKLE
+   ========================================================= */
+
+.replay-sparkle {
+    margin-bottom: 15px;
+
+    color: #e8bd83;
+
+    font-size: 30px;
+
+    animation:
+        replaySparkle
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes replaySparkle {
+
+    0%,
+    100% {
+        opacity: .65;
+
+        transform:
+            scale(.9)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.12)
+            rotate(8deg);
+    }
+}
+
+
+/* =========================================================
+   POPUP LABEL
+   ========================================================= */
+
+.replay-label {
+    margin-bottom: 12px;
+
+    color: #aa9aa3;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   POPUP HEADING
+   ========================================================= */
+
+.replay-card h2 {
+    margin: 0;
+
+    color: #fff2e8;
+
+    font-size:
+        clamp(30px, 6vw, 46px);
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+}
+
+
+.replay-card h2 span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #e8bd83;
+
+    text-shadow:
+        0 0 20px
+        rgba(232, 189, 131, .15);
+}
+
+
+/* =========================================================
+   POPUP TEXT
+   ========================================================= */
+
+.replay-card p {
+    margin:
+        20px
+        auto
+        0;
+
+    max-width: 330px;
+
+    color: #c7b9bd;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.replay-card .replay-small {
+    margin-top: 10px;
+
+    color: #8f8289;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   POPUP ACTIONS
+   ========================================================= */
+
+.replay-actions {
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   PLAY AGAIN
+   ========================================================= */
+
+.replay-button {
+    width: 100%;
+
+    max-width: 280px;
+
+    padding:
+        14px
+        22px;
+
+    border:
+        1px solid
+        rgba(232, 189, 131, .42);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8bd83,
+            #dba86f
+        );
+
+    color: #2b2226;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 1000;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.replay-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(232, 189, 131, .20);
+}
+
+
+.replay-button:active {
+    transform:
+        translateY(0)
+        scale(.97);
+}
+
+
+/* =========================================================
+   STAY HERE
+   ========================================================= */
+
+.stay-button {
+    width: 100%;
+
+    max-width: 280px;
+
+    padding:
+        12px
+        20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, .035);
+
+    color: #91858c;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.stay-button:hover {
+    background:
+        rgba(255, 255, 255, .07);
+
+    color: #c8babf;
+}
+
+
+/* =========================================================
+   VIGNETTE
+   ========================================================= */
+
+.vignette {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 150;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #211d25 0%,
+            rgba(33, 29, 37, .94) 5%,
+            transparent 17%,
+            transparent 80%,
+            rgba(33, 29, 37, .94) 95%,
+            #211d25 100%
+        );
+
+    box-shadow:
+        inset 0 0 140px
+        rgba(20, 15, 20, .55);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .credit-roll {
+        width: 88vw;
+
+        animation-duration:
+            30s;
+    }
+
+
+    .credit-block {
+        min-height: 330px;
+
+        padding:
+            50px
+            10px;
+    }
+
+
+    .credit-block.opening {
+        min-height: 400px;
+    }
+
+
+    .credit-block.apology {
+        min-height: 420px;
+    }
+
+
+    .credit-block.internship {
+        min-height: 450px;
+    }
+
+
+    .credit-block.birthday {
+        min-height: 440px;
+    }
+
+
+    .credit-block.final {
+        min-height: 430px;
+    }
+
+
+    p {
+        font-size: 11px;
+
+        line-height: 1.65;
+    }
+
+
+    .tiny-label {
+        font-size: 6px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .replay-card {
+        padding:
+            32px
+            22px;
+
+        border-radius: 24px;
+    }
+
+
+    .replay-card p {
+        font-size: 12px;
+    }
+
+
+    .replay-button,
+    .stay-button {
+        max-width: 250px;
+    }
+
+}
