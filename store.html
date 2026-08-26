@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Sejal's Birthday Store</title>
+
+    <link
+        rel="stylesheet"
+        href="store.css"
+    >
+</head>
+
+<body>
+
+<div class="store-app">
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <header class="store-header">
+
+        <div class="brand-block">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+                <div class="brand-small">
+                    SEJAL'S
+                </div>
+
+                <div class="brand-title">
+                    Birthday Store
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="coin-balance">
+
+            <div class="coin-symbol">
+                ✦
+            </div>
+
+            <div>
+                <div class="coin-label">
+                    BIRTHDAY COINS
+                </div>
+
+                <div
+                    class="coin-number"
+                    id="coinBalance"
+                >
+                    0
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         SHOP VIEW
+    ====================================================== -->
+
+    <main
+        class="shop-view"
+        id="shopView"
+    >
+
+        <section class="hero">
+
+            <div class="hero-eyebrow">
+                WELCOME TO THE
+            </div>
+
+            <h1>
+                Birthday
+                <span>Shopping Trip</span>
+            </h1>
+
+            <p>
+                Spend the coins you collected on the way
+                to Manipal.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             CATEGORY NAVIGATION
+        ================================================== -->
+
+        <nav class="category-tabs">
+
+            <button
+                class="category-tab active"
+                data-category="cafe"
+            >
+                <span>☕</span>
+                <small>Café</small>
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="fashion"
+            >
+                <span>👗</span>
+                <small>Dress Shop</small>
+            </button>
+
+
+            <button
+                class="category-tab"
+                data-category="beauty"
+            >
+                <span>💄</span>
+                <small>Makeup Shop</small>
+            </button>
+
+        </nav>
+
+
+        <!-- =================================================
+             CATEGORY TITLE
+        ================================================== -->
+
+        <section class="category-heading">
+
+            <div>
+                <div
+                    class="category-eyebrow"
+                    id="categoryEyebrow"
+                >
+                    CAFÉ
+                </div>
+
+                <h2 id="categoryTitle">
+                    Grab something nice
+                </h2>
+
+                <p id="categoryDescription">
+                    Vegetarian treats and drinks for the journey.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCTS
+        ================================================== -->
+
+        <section
+            class="products-grid"
+            id="productsGrid"
+        >
+        </section>
+
+
+        <!-- =================================================
+             CART BUTTON
+        ================================================== -->
+
+        <button
+            class="floating-cart"
+            id="floatingCart"
+            type="button"
+        >
+
+            <div class="cart-left">
+
+                <span class="cart-icon">
+                    🛒
+                </span>
+
+                <span>
+                    CART
+                </span>
+
+            </div>
+
+
+            <span
+                class="cart-count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </button>
+
+    </main>
+
+
+    <!-- =====================================================
+         CART MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-backdrop"
+        id="cartModal"
+        hidden
+    >
+
+        <div class="cart-modal">
+
+            <button
+                class="close-modal"
+                id="closeCart"
+                type="button"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-eyebrow">
+                YOUR CART
+            </div>
+
+            <h2>
+                Ready to buy?
+            </h2>
+
+
+            <div
+                class="cart-items"
+                id="cartItems"
+            >
+            </div>
+
+
+            <div class="cart-summary">
+
+                <div class="summary-row">
+
+                    <span>
+                        Your coins
+                    </span>
+
+                    <strong
+                        id="cartCoinBalance"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row total-row">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong>
+                        <span id="cartTotal">
+                            0
+                        </span>
+                        coins
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="cart-error"
+                id="cartError"
+            >
+            </div>
+
+
+            <button
+                class="purchase-button"
+                id="purchaseButton"
+                type="button"
+            >
+                PURCHASE
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         OWNED PAGE
+    ====================================================== -->
+
+    <section
+        class="owned-view"
+        id="ownedView"
+        hidden
+    >
+
+        <div class="owned-inner">
+
+            <div class="owned-success">
+                ✓ PURCHASE COMPLETE
+            </div>
+
+
+            <div class="owned-icon">
+                🛍️
+            </div>
+
+
+            <div class="owned-eyebrow">
+                YOUR BIRTHDAY HAUL
+            </div>
+
+
+            <h1>
+                Everything's
+                <span>yours!</span>
+            </h1>
+
+
+            <p class="owned-intro">
+                Look at everything you picked up
+                with your birthday coins.
+            </p>
+
+
+            <div
+                class="owned-grid"
+                id="ownedGrid"
+            >
+            </div>
+
+
+            <div class="owned-divider">
+                ✦
+            </div>
+
+
+            <div class="owned-message">
+
+                <strong>
+                    Shopping complete... for now.
+                </strong>
+
+                <p>
+                    You can go back and spend more coins,
+                    or continue the birthday journey.
+                </p>
+
+            </div>
+
+
+            <div class="owned-actions">
+
+                <button
+                    class="owned-button secondary"
+                    id="continueShopping"
+                    type="button"
+                >
+                    CONTINUE SHOPPING
+                </button>
+
+
+                <button
+                    class="owned-button primary"
+                    id="continueCredits"
+                    type="button"
+                >
+                    CONTINUE TO END CREDITS
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Added to cart
+    </div>
+
+
+</div>
+
+
+<script src="store.js"></script>
+
+</body>
+
+</html>
